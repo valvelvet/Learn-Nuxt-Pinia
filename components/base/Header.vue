@@ -1,7 +1,7 @@
 <template>
   <header class="px-[30px]">
     <NuxtLink to="/" class="logo">
-      <span>波波軒</span>
+      <span>{{ logoText }}</span>
       <img src="https://cdn-icons-png.flaticon.com/512/1152/1152102.png" alt="" />
     </NuxtLink>
     <nav>
@@ -12,7 +12,11 @@
   </header>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { useMainStore } from "@/stores/main";
+
+const { logoText } = useMainStore();
+</script>
 
 <style scoped>
 header {

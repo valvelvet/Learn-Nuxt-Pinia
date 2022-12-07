@@ -4,14 +4,8 @@
       <h1>商城</h1>
       <p>Buy with your heart.</p>
       <ul>
-        <li v-for="item in prods" :key="item.id">
-          <NuxtLink :to="'/product-' + item.id">
-            <UICard class="prod">
-              <img :src="item.img" alt="" />
-              <h2>{{ item.name }}</h2>
-              <p>$ {{ item.price }}</p>
-            </UICard>
-          </NuxtLink>
+        <li v-for="item in prods" :key="item.id" class="my-[10px]">
+          <UIProductCard :item="item" buttonConext="＋" @buttonClick="addCart(item.id)"></UIProductCard>
         </li>
       </ul>
     </section>
@@ -19,23 +13,27 @@
 </template>
 
 <script setup lang="ts">
+import { useCartStore } from "@/stores/cart";
+const store = useCartStore();
+
 useHead({
   title: "商城｜Nuxt-Learn",
 });
 const prods = useProduct();
+
+const addCart = (id: number) => {
+  store.addCart(id);
+};
 </script>
 
 <style scoped>
-.prod {
-  transition: 0.3s;
-  height: 190px;
+ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-.prod:hover {
-  transform: scale(1.05);
-}
-.prod img {
-  float: left;
-  border-radius: 5px;
-  height: 150px;
+li {
+  min-width: 30%;
+  width: 200px;
 }
 </style>
