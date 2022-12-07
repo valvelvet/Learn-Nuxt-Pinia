@@ -1,17 +1,17 @@
 <template>
   <UICard>
     <section>
-      <h1>Welcome to the products page</h1>
+      <h1>商城</h1>
       <p>Buy with your heart.</p>
       <ul>
         <li v-for="item in prods" :key="item.id">
-          <nuxt-link :to="'/product-' + item.id">
+          <NuxtLink :to="'/product-' + item.id">
             <UICard class="prod">
               <img :src="item.img" alt="" />
               <h2>{{ item.name }}</h2>
               <p>$ {{ item.price }}</p>
             </UICard>
-          </nuxt-link>
+          </NuxtLink>
         </li>
       </ul>
     </section>
@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 useHead({
-  title: "Products｜Nuxt-Learn",
+  title: "商城｜Nuxt-Learn",
 });
 const prods = useProduct();
 </script>

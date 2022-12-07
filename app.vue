@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout>
-    <NuxtLoadingIndicator color="brown"/>
+    <NuxtLoadingIndicator color="brown" />
     <NuxtPage></NuxtPage>
   </NuxtLayout>
 </template>
@@ -25,5 +25,8 @@ h5 {
 }
 h6 {
   font-size: 16px;
+}
+body {
+  background-color: #eee;
 }
 </style>

@@ -14,5 +14,6 @@ div {
   box-shadow: 0 0 10px 0 #ccc;
   margin: 20px auto;
   padding: 20px;
+  background-color: #fff;
 }
 </style>

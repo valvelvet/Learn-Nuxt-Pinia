@@ -1,13 +1,7 @@
 <template>
   <UICard>
     <section>
-      <h1>Welcome to the homepage</h1>
-      <UIButton>
-        <NuxtLink to="/about"> About Page > </NuxtLink>
-      </UIButton>
-      <UIButton>
-        <NuxtLink to="/products"> Products Page > </NuxtLink>
-      </UIButton>
+      <h1>首頁</h1>
     </section>
     <MyClock />
   </UICard>
@@ -19,12 +13,8 @@ useHead({
   title: "首頁｜Nuxt-Learn", // <title>首頁｜Nuxt-Learn</title>
   meta: [{ name: "description", content: "Nuxt 3 學習筆記" }], // <meta name="description" content="Nuxt 3 學習筆記">
   bodyAttrs: { class: "test" }, // <body class="test"></body>
-  script: [{ children: "console.log('Hello world')" }] // <script>console.log('Hello world')< /script>
+  script: [{ children: "console.log('Hello world')" }], // <script>console.log('Hello world')< /script>
 });
 </script>
 
-<style scoped>
-::v-deep(button) {
-  margin: 10px 20px 0 0;
-}
-</style>
+<style scoped></style>
