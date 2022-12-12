@@ -8,10 +8,12 @@
 </template>
 
 <script lang="ts" setup>
+import { useMainStore } from "@/stores/main";
+const { logoText } = useMainStore();
 import Rainbow from "~~/components/My/Rainbow.vue";
 
 useHead({
-  title: "關於我們｜Nuxt-Learn",
+  title: "關於我們｜" + logoText,
 });
 </script>
 

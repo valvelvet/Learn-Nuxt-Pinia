@@ -27,7 +27,7 @@ function buttonClick(id: number) {
   position: relative;
   display: inline-block;
   border-radius: 10px;
-  border: 2px solid #ccc;
+  border: 1px solid var(--main-magenta);
   transition: 0.3s;
 }
 .prod:hover {
@@ -60,6 +60,6 @@ function buttonClick(id: number) {
   font-size: 20px;
   line-height: 25px;
   color: #fff;
-  background-color: #c84;
+  background-color: var(--main-yellow);
 }
 </style>

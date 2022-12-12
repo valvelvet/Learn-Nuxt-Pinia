@@ -44,14 +44,14 @@ header {
   font-size: 22px;
   position: relative;
   z-index: 2;
-  filter: drop-shadow(1px 1px 1px #f4a);
+  filter: drop-shadow(1px 1px 1px var(--main-magenta));
 }
 .logo img {
   display: inline-block;
   margin-left: -22px;
   width: 30px;
   vertical-align: top;
-  filter: drop-shadow(-3px 1px 0 #f0fb) drop-shadow(3px 1px 0 #0ffb) drop-shadow(0 -3px 0#ff0b);
+  filter: drop-shadow(-3px 1px 0 var(--main-magenta)) drop-shadow(3px 1px 0 var(--main-cyan)) drop-shadow(0 -3px 0 var(--main-yellow));
 }
 .cart {
   position: relative;
@@ -61,7 +61,7 @@ header {
   top: 50%;
   left: 0.75rem;
   transform: translate(-100%, -50%);
-  background-color: #833;
+  background-color: var(--main-cyan);
   color: #fff;
   font-size: 14px;
   line-height: 1rem;
@@ -69,7 +69,6 @@ header {
   padding: 3px 7px;
 }
 :deep(a.cart.router-link-active span){
-  background-color: #fcc;
-  color: brown;
+  background-color: var(--dark-cyan);
 }
 </style>

@@ -21,29 +21,28 @@ button,
 a {
   display: inline-block;
   border: none;
-  box-shadow: 0 1px 5px 0 #ccc;
+  box-shadow: 0 1px 5px 0 #888;
   border-radius: 20px;
-  color: brown;
+  color: var(--main-cyan);
   height: 2rem;
   line-height: 2rem;
   padding: 0 15px;
 }
-button:hover,
+button:not(:disabled):hover,
 a:hover {
-  box-shadow: inset 0 1px 5px 0 #0009;
+  box-shadow: inset 0 1px 5px 0 #0008;
 }
 a.router-link-active {
-  box-shadow: inset 0 1px 5px 0 #ccc;
-  background-color: #444;
-  color: #fcc;
+  box-shadow: inset 0 1px 5px 0 var(--dark-cyan);
+  color: var(--dark-cyan);
 }
 img {
   display: inline-block;
   height: 1.25rem;
   padding-bottom: 3px;
-  filter: invert(50%) sepia(50%) saturate(1000%) hue-rotate(-30deg) brightness(50%);
+  filter: invert(20%) sepia(70%) saturate(1500%) hue-rotate(190deg);
 }
 a.router-link-active img {
-  filter: invert(100%) sepia(90%) saturate(800%) hue-rotate(-70deg);
+  filter: invert(20%) sepia(50%) saturate(500%) hue-rotate(170deg);
 }
 </style>

@@ -13,7 +13,7 @@
       </ul>
       <div>
         {{ cartCount }} 樣商品，共計 {{ prodsCount }} 件，總計金額：<b>$ {{ subtotal }}</b>
-        <UIButton class="ml-[15px] pay">去買單</UIButton>
+        <UIButton :disabled="prodsCount <= 0" class="ml-[15px] pay">去買單</UIButton>
       </div>
       <!-- <div>
       </div> -->
@@ -22,10 +22,12 @@
 </template>
 
 <script lang="ts" setup>
+import { useMainStore } from "@/stores/main";
 import { useCartStore } from "@/stores/cart";
+const { logoText } = useMainStore();
 const cartStore = useCartStore();
 useHead({
-  title: "購物車｜Nuxt-Learn",
+  title: "購物車｜" + logoText,
 });
 
 const queryCart = computed(() => cartStore.queryCart);
@@ -85,27 +87,30 @@ li p {
 li p input {
   text-align: end;
   width: 4rem;
-  border-bottom: 2px solid #c84;
+  border-bottom: 2px solid var(--main-yellow);
 }
 li p input:focus-visible {
   outline: none;
-  border-bottom: 2px solid #832;
-  background-color: #c842;
+  border-bottom: 2px solid var(--dark-magenta);
+  background-color: #FEA73433;
 }
 b {
   font-size: 18px;
-  color: #832;
+  color: var(--dark-magenta);
   line-height: 2rem;
 }
 section div {
   margin: 1rem -1rem 0 -1rem;
   padding: 1rem 1.5rem 0 1.5rem;
-  border-top: 3px dashed #c84;
+  border-top: 3px dashed var(--main-yellow);
   text-align: right;
 }
-.pay{
-  background-color: brown;
+.pay {
+  background-color: var(--dark-magenta);
   color: #fff;
+}
+.pay:disabled {
+  background-color: #b77;
 }
 @media screen and (min-width: 580px) {
   li {

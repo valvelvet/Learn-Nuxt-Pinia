@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --light-yellow: #FFF243;
+  --main-yellow: #FEA734;
+  --dark-yellow: #B46C49;
+  --light-magenta: #FEB0AF;
+  --main-magenta: #A4351F;
+  --dark-magenta: #71070A;
+  --light-cyan: #2DB8C5;
+  --main-cyan: #015C91;
+  --dark-cyan: #334482;
+}
+
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 32px;
+}
+h3 {
+  font-size: 28px;
+}
+h4 {
+  font-size: 24px;
+}
+h5 {
+  font-size: 20px;
+}
+h6 {
+  font-size: 16px;
+}
+body {
+  background-color: #eee;
+}

@@ -6,4 +6,9 @@
 </template>
 
 <script setup lang="ts">
+import { useMainStore } from "@/stores/main";
+const { logoText } = useMainStore();
+useHead({
+  title: "404｜" + logoText,
+});
 </script>

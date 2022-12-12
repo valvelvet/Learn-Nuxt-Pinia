@@ -14,10 +14,12 @@
 
 <script setup lang="ts">
 import { useCartStore } from "@/stores/cart";
+import { useMainStore } from "@/stores/main";
 const cartStore = useCartStore();
+const { logoText } = useMainStore();
 
 useHead({
-  title: "商城｜Nuxt-Learn",
+  title: "商城｜" + logoText,
 });
 const prods = useProduct();
 

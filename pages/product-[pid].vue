@@ -12,17 +12,19 @@
 </template>
 
 <script setup lang="ts">
+import { useMainStore } from "@/stores/main";
+const { logoText } = useMainStore();
 const route = useRoute();
 const prods = useProduct();
 const pid = parseInt(<string>route.params.pid);
 const prod = prods.find((p: any) => p.id === pid);
 useHead({
-  title: prod?.name+"｜Nuxt-Learn",
+  title: prod?.name + "｜" + logoText,
 });
 </script>
 
 <style scoped>
-::v-deep(a){
+::v-deep(a) {
   color: brown;
 }
 </style>
