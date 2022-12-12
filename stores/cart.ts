@@ -1,21 +1,53 @@
 import { defineStore } from "pinia";
 const prods = useProduct();
-
-export const useCartStore = defineStore("Cart", {
-  state: () => ({
-    count: 0,
-    cartProds: [],
+interface State {
+  cartProds: object[] | [];
+}
+export const useCartStore = defineStore("cart", {
+  state: (): State => ({
+    cartProds: reactive([]),
   }),
   getters: {
-    queryCart(state) {
-      return [...state.cartProds];
+    cartCount(): number {
+      return this.cartProds.length;
+    },
+    queryCart(): object[] {
+      return [...this.cartProds];
+    },
+    subtotal(): number {
+      let total = 0;
+      this.cartProds.map((p) => {
+        total += p.count * p.price;
+      });
+      return total;
+    },
+    prodsCount(): number {
+      let prodsCount = 0;
+      this.cartProds.map((p) => {
+        prodsCount += parseInt(p.count);
+      });
+      return prodsCount;
     },
   },
   actions: {
-    addCart(id: number) {
-      this.cartProds.push({
-        ...prods.filter((i) => i.id === id),
-      });
+    addProduct(id: number) {
+      const currentProdIndex = this.cartProds.findIndex((prod) => prod.id === id);
+      if (currentProdIndex >= 0) {
+        this.cartProds[currentProdIndex].count++;
+      } else {
+        this.cartProds.push({
+          ...prods.find((i) => i.id === id),
+          count: 1,
+        });
+      }
+    },
+    deleteProduct(id: number) {
+      this.cartProds = this.cartProds.filter((i) => i.id !== id);
+    },
+    updateProdCount(id: number, newCount: number) {
+      const currentProdIndex = this.cartProds.findIndex((prod) => prod.id === id);
+      if (newCount > 0) this.cartProds[currentProdIndex].count = newCount;
+      else this.cartProds[currentProdIndex].count = 0;
     },
   },
 });

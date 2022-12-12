@@ -5,7 +5,7 @@
       <p>Buy with your heart.</p>
       <ul>
         <li v-for="item in prods" :key="item.id" class="my-[10px]">
-          <UIProductCard :item="item" buttonConext="＋" @buttonClick="addCart(item.id)"></UIProductCard>
+          <UIProductCard :item="item" buttonConext="＋" @buttonClick="addToCart(item.id)"></UIProductCard>
         </li>
       </ul>
     </section>
@@ -14,15 +14,15 @@
 
 <script setup lang="ts">
 import { useCartStore } from "@/stores/cart";
-const store = useCartStore();
+const cartStore = useCartStore();
 
 useHead({
   title: "商城｜Nuxt-Learn",
 });
 const prods = useProduct();
 
-const addCart = (id: number) => {
-  store.addCart(id);
+const addToCart = (id: number) => {
+  cartStore.addProduct(id);
 };
 </script>
 

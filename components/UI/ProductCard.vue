@@ -2,7 +2,7 @@
   <NuxtLink :to="'/product-' + item.id" class="prod">
     <img :src="item.img" alt="" />
     <div class="prod-info">
-      <h4>{{ item.name }}</h4>
+      <h5>{{ item.name }}</h5>
       <p>$ {{ item.price }}</p>
     </div>
     <button @click.prevent="buttonClick(item.id)">{{ buttonConext }}</button>
@@ -24,33 +24,31 @@ function buttonClick(id: number) {
 
 <style scoped>
 .prod {
-  display: block;
-  padding: 0;
-}
-.prod {
   position: relative;
   display: inline-block;
   border-radius: 10px;
-  overflow: hidden;
   border: 2px solid #ccc;
   transition: 0.3s;
 }
 .prod:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 .prod img {
   width: 100%;
+  max-height: 200px;
+  border-radius: 8px 8px 0 0 ;
 }
 .prod .prod-info {
   width: 90%;
   margin: 10px auto;
 }
-.prod .prod-info h4 {
+.prod .prod-info h5 {
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
+  height: 4rem;
 }
 .prod button {
   position: absolute;

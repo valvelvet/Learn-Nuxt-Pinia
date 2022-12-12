@@ -12,6 +12,7 @@
 
 <style scoped>
 main {
-  min-height: calc(100vh - 92px);
+  padding-top: 50px;
+  min-height: calc(100vh - 24px);
 }
 </style>
