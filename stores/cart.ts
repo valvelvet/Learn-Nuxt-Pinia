@@ -28,6 +28,10 @@ export const useCartStore = defineStore("cart", {
       });
       return prodsCount;
     },
+    moreProds(): object {
+      let moreProds = prods.filter((p) => this.cartProds.findIndex((c) => c.id === p.id) < 0);
+      return moreProds.slice(0, 5);
+    },
   },
   actions: {
     addProduct(id: number) {

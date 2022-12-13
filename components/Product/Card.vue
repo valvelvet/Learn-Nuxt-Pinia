@@ -1,6 +1,7 @@
 <template>
   <NuxtLink :to="'/product-' + item.id" class="prod">
-    <img :src="item.img" alt="" />
+    <img v-show="!imgError && !imgLoad" alt="" :src="item.img" />
+    <img v-if="imgError || imgLoad" alt="" src="~/assets/img/prod.png" />
     <div class="prod-info">
       <h5>{{ item.name }}</h5>
       <p>$ {{ item.price }}</p>
@@ -10,16 +11,32 @@
 </template>
 
 <script setup lang="ts">
-const { item } = defineProps<{
+const props = defineProps<{
   item: { id: number; img: string; name: string; price: number };
   buttonConext: string;
 }>();
+const { item, buttonConext } = toRefs(props);
 
 const emit = defineEmits(["buttonClick"]);
 
 function buttonClick(id: number) {
   emit("buttonClick", id);
 }
+
+// 圖片加載中與失敗預設圖
+const imgError = ref(false);
+const imgLoad = ref(true);
+
+onMounted(() => {
+  let newImg = new Image();
+  newImg.src = item.value.img;
+  newImg.onload = () => {
+    imgLoad.value = false;
+  };
+  newImg.onerror = () => {
+    imgError.value = true;
+  };
+});
 </script>
 
 <style scoped>
@@ -35,8 +52,7 @@ function buttonClick(id: number) {
 }
 .prod img {
   width: 100%;
-  max-height: 200px;
-  border-radius: 8px 8px 0 0 ;
+  border-radius: 8px 8px 0 0;
 }
 .prod .prod-info {
   width: 90%;

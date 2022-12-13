@@ -5,7 +5,7 @@
       <p>Buy with your heart.</p>
       <ul>
         <li v-for="item in prods" :key="item.id" class="my-[10px]">
-          <UIProductCard :item="item" buttonConext="＋" @buttonClick="addToCart(item.id)"></UIProductCard>
+          <ProductCard :item="item" buttonConext="＋" @buttonClick="addToCart(item.id)"></ProductCard>
         </li>
       </ul>
     </section>
@@ -31,11 +31,36 @@ const addToCart = (id: number) => {
 <style scoped>
 ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
 }
+
 li {
-  min-width: 30%;
-  width: 200px;
+  width: 100%;
+}
+@media screen and (min-width: 350px) {
+  /* ul {
+    justify-content: space-between;
+  } */
+  li {
+    width: 50%;
+    padding: 5px;
+  }
+}
+@media screen and (min-width: 550px) {
+  li {
+    width: 33.333333%;
+    padding: 10px;
+  }
+}
+@media screen and (min-width: 750px) {
+  li {
+    width: 25%;
+  }
+}
+@media screen and (min-width: 950px) {
+  li {
+    width: 20%;
+  }
 }
 </style>
